@@ -11,7 +11,7 @@ const Home = () => {
         ...document.data(),
         id: document.id,
       };
-      setNweets((prev) => [document.data(), ...prev]);
+      setNweets((prev) => [nweetObject, ...prev]);
     });
   };
   useEffect(() => {
@@ -19,7 +19,7 @@ const Home = () => {
   }, []);
   const onSubmit = async (event) => {
     event.preventDefault();
-    await dbService.collection("nweetes").add({
+    await dbService.collection("nweets").add({
       nweet,
       createdAt: Date.now(),
     });
